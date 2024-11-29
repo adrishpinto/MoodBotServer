@@ -13,6 +13,9 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("server is working");
+});
 // Lvl1
 app.post("/lvl1", async (req, res) => {
   const message = req.body.message;
@@ -116,7 +119,8 @@ app.post("/lvl4", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "Respond in a semi-poetic way don't make it too complex max 8 lines",
+          content:
+            "Respond in a semi-poetic way don't make it too complex max 8 lines",
         },
         { role: "user", content: message },
       ],
