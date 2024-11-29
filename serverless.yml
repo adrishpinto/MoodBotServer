@@ -1,0 +1,16 @@
+service: groq-chatbot
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  app:
+    handler: lambda.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+
+plugins:
+  - serverless-offline
